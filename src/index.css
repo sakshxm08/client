@@ -1,13 +1,77 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer utilities {
+  .whaaaat {
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.border-sky-700 {
+  border-color: #0369a1;
+}
+.border-green-700 {
+  border-color: #15803d;
+}
+.border-amber-700 {
+  border-color: #b45309;
+}
+.border-fuchsia-700 {
+  border-color: #a21caf;
+}
+.hover-bg-sky-700:hover {
+  background-color: #0369a1;
+}
+.hover-bg-green-700:hover {
+  background-color: #15803d;
+}
+.hover-bg-amber-700:hover {
+  background-color: #b45309;
+}
+.hover-bg-fuchsia-700:hover {
+  background-color: #a21caf;
+}
+.active-bg-sky-900:active {
+  background-color: #0c4a6e;
+}
+.active-bg-green-900:active {
+  background-color: #14532d;
+}
+.active-bg-amber-900:active {
+  background-color: #78350f;
+}
+.active-bg-fuchsia-900:active {
+  background-color: #701a75;
+}
+
+#loader {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  inset: 0;
+  /* background: #16a34a; */
+  background: #101010;
+  z-index: 10000;
+  transform-origin: bottom;
+  /* animation: loader 3s cubic-bezier(0.785, 0.135, 0.15, 0.86); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@keyframes loader {
+  0% {
+    /* transform: scaleY(1); */
+    transform: translateY(0);
+  }
+  40% {
+    /* transform: scaleY(1); */
+    transform: translateY(0);
+  }
+
+  80% {
+    transform: translateY(100vh);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
 }
