@@ -42,7 +42,9 @@ const Product = () => {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    fetch(`/api/store/products/${category}/${id}`)
+    fetch(
+      `https://wearworx-server.onrender.com/api/store/products/${category}/${id}`
+    )
       .then((res) => res.json())
       .then((res) => {
         if (res.error) return setLoading(false);

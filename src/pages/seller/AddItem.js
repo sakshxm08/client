@@ -30,7 +30,7 @@ const AddItem = () => {
 
   const [categories, setCategories] = useState([]);
   useEffect(() => {
-    fetch(`/api/store/categories`)
+    fetch(`https://wearworx-server.onrender.com/api/store/categories`)
       .then((res) => res.json())
       .then((res) => {
         setCategories([...res]);
@@ -96,13 +96,16 @@ const AddItem = () => {
       url: imgBase64 ? imgBase64 : imgURL,
       keywords,
     };
-    const response = await fetch("/api/store/products", {
-      method: "POST",
-      body: JSON.stringify(item),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const response = await fetch(
+      "https://wearworx-server.onrender.com/api/store/products",
+      {
+        method: "POST",
+        body: JSON.stringify(item),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
     // .then((res) => res.json())
     const json = await response.json();
 

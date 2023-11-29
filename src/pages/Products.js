@@ -15,7 +15,7 @@ export const Products = () => {
   const [store, setStore] = useState(null);
 
   useEffect(() => {
-    fetch(`/api/store/products/${category}`)
+    fetch(`https://wearworx-server.onrender.com/api/store/products/${category}`)
       .then((res) => res.json())
       .then((res) => {
         if (res.error) return setLoading(false);

@@ -5,7 +5,7 @@ export const Categories = () => {
   const [loading, setLoading] = useState(true);
   const [categories, setCategories] = useState([]);
   useEffect(() => {
-    fetch(`/api/store/categories`)
+    fetch(`https://wearworx-server.onrender.com/api/store/categories/`)
       .then((res) => res.json())
       .then((res) => {
         setCategories([...res]);

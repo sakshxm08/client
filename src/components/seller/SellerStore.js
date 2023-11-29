@@ -6,7 +6,7 @@ const SellerStore = () => {
   const [store, setStore] = useState(null);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch("/api/store/products")
+    fetch("https://wearworx-server.onrender.com/api/store/products")
       .then((res) => res.json())
       .then((res) => {
         if (res.error) return setLoading(false);
