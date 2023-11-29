@@ -10,17 +10,33 @@ import { useAuthContext } from "../hooks/useAuthContext";
 import { stashServer } from "../features/stash/stashServer";
 import { toast } from "react-toastify";
 import { BiError } from "react-icons/bi";
+import { FaUserClock } from "react-icons/fa";
 
 export const ProductCard = ({ product }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const openProduct = () => {
-    navigate(`./${product._id}`);
+    navigate(`/products/${product.category}/${product._id}`);
   };
 
   const addToStash = (e) => {
     e.stopPropagation();
-    dispatch(addToStashRedux(product));
+    if (user) {
+      dispatch(addToStashRedux(product));
+    } else {
+      toast.error(<div>Please login to add to Stash</div>, {
+        icon: <FaUserClock size={40} />,
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        bodyClassName: "text-sm font-titleFont",
+      });
+    }
   };
 
   const [error, setError] = useState(false);

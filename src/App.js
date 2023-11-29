@@ -26,6 +26,7 @@ import { useAuthContext } from "./hooks/useAuthContext";
 import { useDispatch } from "react-redux";
 import { setCartRedux } from "./features/cart/cartSlice";
 import { setStashRedux } from "./features/stash/stashSlice";
+import { SearchItems } from "./pages/SearchItems";
 
 const Layout = () => {
   const [loading, setLoading] = useState(true);
@@ -122,6 +123,7 @@ function App() {
         { path: "/women", element: <Home /> },
         { path: "/kids", element: <Home /> },
         { path: "/beauty", element: <Home /> },
+        { path: "/searchitems", element: <SearchItems /> },
 
         { path: "*", element: <NotFound /> },
       ],

@@ -106,7 +106,7 @@ const AddItem = () => {
         },
       }
     );
-    // .then((res) => res.json())
+
     const json = await response.json();
 
     if (!response.ok) {

@@ -4,7 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 import { UserMenu } from "./UserMenu";
 
 import { IoMdArrowDropdown } from "react-icons/io";
-import Search from "./Search";
+import SearchBar from "./SearchBar";
 import MobileMenu from "./MobileMenu";
 import { useSelector } from "react-redux";
 import { BsBox2Heart } from "react-icons/bs";
@@ -122,7 +122,7 @@ export const Header = () => {
             </NavLink>
           </ul>
           <div className="w-1/2  hidden tablets:flex">
-            <Search />
+            <SearchBar />
           </div>
           <div className="flex gap-3 tablets:gap-6 h-full items-center justify-center">
             <div className="group h-full hidden tablets:flex relative justify-center items-center group cursor-pointer  after:content-[''] after:w-full after:duration-200 after:h-0 hover:after:h-1 after:bg-green-600 after:absolute after:bottom-0 ">
