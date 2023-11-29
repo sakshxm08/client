@@ -1,0 +1,42 @@
+{
+  "files": {
+    "main.css": "/static/css/main.ad580b09.css",
+    "main.js": "/static/js/main.3ee744be.js",
+    "static/media/handbags.jpeg": "/static/media/handbags.d6fe6f2ca76cb2b265ed.jpeg",
+    "static/media/trousers.jpeg": "/static/media/trousers.2b5867f6fdccf55029e8.jpeg",
+    "static/media/fashion-runway.jpg": "/static/media/fashion-runway.2a00817f13331cf82408.jpg",
+    "static/media/jewellery.jpeg": "/static/media/jewellery.ab5b651f00d1ede3e5f5.jpeg",
+    "static/media/jeans.jpeg": "/static/media/jeans.fd011f4033202032ce3c.jpeg",
+    "static/media/tshirts.jpeg": "/static/media/tshirts.47c435bf76d0e9116a4c.jpeg",
+    "static/media/kurtis.jpeg": "/static/media/kurtis.86d032be2f7cbe24af5c.jpeg",
+    "static/media/sarees.jpeg": "/static/media/sarees.b2391b3be57be80ff8ba.jpeg",
+    "static/media/shirts.jpeg": "/static/media/shirts.1368f692c9c3fee14d1e.jpeg",
+    "static/media/dresses.jpeg": "/static/media/dresses.faa813f6bac25e0adeff.jpeg",
+    "static/media/reset-pass.png": "/static/media/reset-pass.3d9a6abbddcec2360c5b.png",
+    "static/media/1.png": "/static/media/1.39bd3b76c2d92f671c40.png",
+    "static/media/signup.png": "/static/media/signup.a1d46075c8c66c1eef77.png",
+    "static/media/4.png": "/static/media/4.abe226f60092c09e0c2c.png",
+    "static/media/3.png": "/static/media/3.f48cdb93c876a9435f98.png",
+    "static/media/2.png": "/static/media/2.6cce29023a51a2c20b89.png",
+    "static/media/login.png": "/static/media/login.bce7a3769f7193af892d.png",
+    "static/media/cart-login.svg": "/static/media/cart-login.a8b468cc44c41e394f35185857c3e8a3.svg",
+    "static/media/empty-cart.svg": "/static/media/empty-cart.e1c49ba691974a92bbfcfd1aa614be55.svg",
+    "static/media/google.png": "/static/media/google.0590aaf0fe36e23dcc8c.png",
+    "static/media/logo-with-text.png": "/static/media/logo-with-text.6dc27f9c24faef9ff2b4.png",
+    "static/media/logo-with-text-light.png": "/static/media/logo-with-text-light.480acad6e2efc82b03ee.png",
+    "static/media/empty-stash.svg": "/static/media/empty-stash.a06b0e9b8cb27b0f21327d8a6e785d44.svg",
+    "static/media/logo.png": "/static/media/logo.3f39fd6b78705d170a14.png",
+    "static/media/add_item.svg": "/static/media/add_item.be2fb471a047c5fec8caa8029c0c46f5.svg",
+    "static/media/Fav.png": "/static/media/Fav.e13984a578167bece667.png",
+    "static/media/order_confirmed.svg": "/static/media/order_confirmed.8b39df209462a997ee54250e55281b8d.svg",
+    "static/media/favorites.svg": "/static/media/favorites.963e96e55429c0afea80cf214f6f31a4.svg",
+    "static/media/products-blurred.webp": "/static/media/products-blurred.e47b138179af2e0613a2.webp",
+    "index.html": "/index.html",
+    "main.ad580b09.css.map": "/static/css/main.ad580b09.css.map",
+    "main.3ee744be.js.map": "/static/js/main.3ee744be.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ad580b09.css",
+    "static/js/main.3ee744be.js"
+  ]
+}
