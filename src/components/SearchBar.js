@@ -4,8 +4,6 @@ import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import SmallLoader from "./Loaders/SmallLoader";
 
 const SearchBar = () => {
-  // const [storeProducts, setStoreProducts] = useState([]);
-  // const [storeCategories, setStoreCategories] = useState([]);
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
   const [loading, setLoader] = useState(false);
@@ -17,57 +15,10 @@ const SearchBar = () => {
 
   const [searchParams, setSearchParams] = useSearchParams();
 
-  // const fetchProducts = (value) => {
-  //   setLoader(true);
-  //   setSearchResults(true);
-  //   const results_products = storeProducts.filter((item) => {
-  //     return (
-  //       item.name.toLowerCase().includes(value.toLowerCase()) ||
-  //       item.category.toLowerCase().includes(value.toLowerCase())
-  //     );
-  //   });
-  //   const results_categories = storeCategories.filter((category) => {
-  //     return category.name.toLowerCase().includes(value.toLowerCase());
-  //   });
-  //   setProducts(results_products);
-  //   setCategories(results_categories);
-  //   setLoader(false);
-  // };
-
   useEffect(() => {
     if (!query) setSearchResults(false);
   }, [query]);
 
-  // useEffect(() => {
-  //   try {
-  //     setLoader(true);
-  //     setSearchResults(true);
-
-  //     fetch(
-  //       `https://wearworx-server.onrender.com/api/store/search/product/${query}`
-  //     )
-  //       .then((res) => res.json())
-  //       .then((json) => {
-  //         // setStoreProducts(json);
-  //         setProducts(json);
-  //       });
-  //     fetch(
-  //       `https://wearworx-server.onrender.com/api/store/search/category/${query}`
-  //     )
-  //       .then((res) => res.json())
-  //       .then((json) => {
-  //         // setStoreCategories(json);
-  //         setCategories(json);
-  //       });
-  //     setLoader(false);
-  //   } catch (err) {
-  //     alert(err.message);
-  //   }
-  // }, [query]);
-  // useEffect(() => {
-
-  // try {
-  //   if (query) {
   const fetchData = async (value) => {
     if (value) {
       setSearchResults(true);
@@ -88,17 +39,10 @@ const SearchBar = () => {
       setLoader(false);
     }
   };
-  // fetchData();
-
-  // } catch (err) {
-  // alert(err.message);
-  // }
-  // }, [query]);
 
   const handleSearch = (value) => {
     setQuery(value);
     searchParams.set("q", value);
-    // fetchProducts(value);
     fetchData(value);
   };
 
@@ -161,10 +105,10 @@ const SearchBar = () => {
                   <img
                     src={product.url}
                     alt="Search item"
-                    className="aspect-square object-cover rounded w-10"
+                    className="aspect-square object-cover rounded w-10 border"
                   />
-                  <div className="flex flex-col">
-                    <span className="text-sm">{product.name}</span>
+                  <div className="flex flex-col overflow-hidden w-full">
+                    <span className="text-sm truncate">{product.name}</span>
                     <span className="text-slate-500 text-xs">
                       {product.category.charAt(0).toUpperCase() +
                         product.category.slice(1)}

@@ -36,23 +36,23 @@ export const CartItem = ({ product }) => {
           navigate(`/products/${product.category}/${product._id}`);
         }}
       >
-        <div className="shadow hover:shadow-lg rounded-sm p-3 pr-7 pb-4 flex w-full gap-4 relative cursor-pointer transition-all">
-          <div className="object-cover w-24 h-full mobile:w-32">
+        <div className="shadow hover:shadow-lg rounded-sm p-3 pr-7 pb-4 flex w-full gap-4 relative cursor-pointer transition-all items-center">
+          <div className="object-cover w-24 h-full flex items-center justify-center mobile:w-32 border aspect-square">
             <img
               src={product.url}
               className="w-full h-auto object-cover"
               alt=""
             />
           </div>
-          <div className="flex flex-col gap-2 text-sm pt-2">
+          <div className="flex flex-col gap-2 text-sm pt-2 max-w-3/4">
             <div>
               <span className=" flex flex-col sm:flex-row sm:items-center sm:gap-2">
-                <h6 className="font-semibold font-titleFont text-base">
+                <h6 className="font-semibold font-titleFont text-base pr-4">
                   {product.name}
+                  <span className=" flex items-center justify-center w-fit gap-1  text-green-700  tracking-wider font-medium rounded-sm text-[11px]">
+                    (Size: {product.size.toUpperCase()})
+                  </span>
                 </h6>
-                <span className=" flex items-center justify-center w-fit gap-1  sm:px-1  text-green-700  tracking-wider font-medium rounded-sm text-[11px]">
-                  (Size: {product.size.toUpperCase()})
-                </span>
               </span>
               <h2 className="text-gray-500 text-sm font-light mt-1 mb-3">
                 Category:{" "}
@@ -115,7 +115,6 @@ export const CartItem = ({ product }) => {
             className="absolute top-2 p-2 border rounded-sm hover:bg-green-50 transition-all right-2 mobile:top-4 mobile:right-4 cursor-pointer"
             onClick={(e) => {
               e.stopPropagation();
-
               setRemoveModalOpen(true);
             }}
           >
