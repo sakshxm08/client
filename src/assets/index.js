@@ -3,10 +3,10 @@ import logoLightText from "./logo-with-text-light.png";
 import logo from "./logo.png";
 import cart from "./cart.png";
 import userImg from "./user.png";
-import banner1 from "./banner/1.png";
-import banner2 from "./banner/2.png";
-import banner3 from "./banner/3.png";
-import banner4 from "./banner/4.png";
+import banner1 from "./banner/1.webp";
+import banner2 from "./banner/2.webp";
+import banner3 from "./banner/3.webp";
+import banner4 from "./banner/4.webp";
 import kurtis from "./categories/kurtis.jpeg";
 import handbags from "./categories/handbags.jpeg";
 import tshirts from "./categories/tshirts.jpeg";
@@ -30,6 +30,8 @@ import addItem from "./add_item.svg";
 import favorites from "./favorites.svg";
 import orderConfirmed from "./order_confirmed.svg";
 import cartLogin from "./cart-login.svg";
+import stashImg from "./stash.svg";
+import sakshxm08 from "./sakshxm08.png";
 export {
   logoText,
   logoLightText,
@@ -63,4 +65,6 @@ export {
   favorites,
   orderConfirmed,
   cartLogin,
+  stashImg,
+  sakshxm08,
 };

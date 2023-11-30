@@ -52,7 +52,7 @@ export const useSignup = () => {
       stashServer(json, [], error, setError);
 
       setIsLoading(false);
-      navigate("/");
+      navigate(-2);
 
       toast.success(
         <div className="flex flex-col">

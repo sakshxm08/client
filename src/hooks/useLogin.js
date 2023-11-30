@@ -49,7 +49,7 @@ export const useLogin = () => {
 
       setIsLoading(false);
 
-      navigate("/");
+      navigate(-1);
 
       toast.success(
         <div className="flex flex-col">

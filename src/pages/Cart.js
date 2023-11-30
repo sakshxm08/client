@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { blurredProduct, emptyCart } from "../assets";
+import { stashImg, emptyCart } from "../assets";
 import { CartPrice } from "../components/CartPrice";
 
 import { useSelector } from "react-redux";
@@ -13,6 +13,7 @@ import { toast } from "react-toastify";
 import { BiError } from "react-icons/bi";
 import Unauthorized from "./Unauthorized";
 import { FaArrowRight } from "react-icons/fa";
+import { BsBox2Heart } from "react-icons/bs";
 
 export const Cart = () => {
   const cart = useSelector((state) => state.cart.cart);
@@ -46,15 +47,12 @@ export const Cart = () => {
           {cart.length ? (
             <div className="w-11/12 lg:w-4/5 flex mx-auto lg:flex-row flex-col relative">
               <div className="w-full lg:w-2/3 flex flex-col gap-4 mobile:px-6 lg:border-r lg:border-r-gray-300 py-8 ">
-                <div className="border py-4 px-3 flex justify-between items-center w-full rounded-sm text-xs font-medium">
-                  <span>Check delivery time & services</span>
-                  <button className="border border-green-600 text-green-600 px-1 tablets:px-3 py-1 tablets:py-2 uppercase text-[10px] tablets:text-xs hover:bg-green-100 active:scale-95 duration-200 cursor-pointer rounded-sm">
-                    Enter pin code
-                  </button>
-                </div>
+                <h1 className="text-xl font-bold">Cart Items</h1>
                 {cart.length ? (
                   cart.map((item) => (
-                    <CartItem key={item._id + item.size} product={item} />
+                    <div className="shadow">
+                      <CartItem key={item._id + item.size} product={item} />
+                    </div>
                   ))
                 ) : (
                   <>
@@ -66,18 +64,20 @@ export const Cart = () => {
                     </Link>
                   </>
                 )}
-                <div className="border py-4 px-3 flex  mobile:flex-row flex-col mobile:gap-0 gap-4 justify-between items-center w-full rounded-sm text-[10px] tablets:text-xs font-medium">
-                  <span className="flex gap-4 items-center ">
-                    <img
-                      src={blurredProduct}
-                      className="w-16 tablets:w-20"
-                      alt=""
-                    />
-                    <span>Login to see items from your existing bag.</span>
+                <div className="shadow py-4 px-3 flex bg-gradient-to-br from-green-500 to-green-800 rounded mobile:flex-row flex-col mobile:gap-0 gap-4 justify-between items-center w-full text-[10px] tablets:text-xs font-medium">
+                  <span className="flex gap-4 items-center">
+                    <img src={stashImg} className="w-16 tablets:w-28" alt="" />
+                    <span className="flex flex-col text-base text-white ">
+                      Your style awaits, uncover it.
+                    </span>
                   </span>
-                  <button className="active:scale-95 mobile:w-fit w-2/3 text-center border border-green-600 text-green-600 px-1 tablets:px-3 py-1 tablets:py-2 uppercase text-[10px] tablets:text-xs hover:bg-green-100 duration-200 cursor-pointer rounded-sm">
-                    login now
-                  </button>
+                  <Link
+                    to="/stash"
+                    className="flex flex-nowrap mr-2 items-center justify-center gap-2 active:scale-95 mobile:w-fit w-2/3 text-center border border-white text-white px-1 tablets:px-3 py-1 tablets:py-2 uppercase text-[10px] tablets:text-sm hover:bg-white hover:text-green-600 duration-200 cursor-pointer rounded"
+                  >
+                    <BsBox2Heart size={16} />
+                    Stash
+                  </Link>
                 </div>
               </div>
               <div className="h-fit py-8 flex sticky top-20 flex-col gap-4 px-6 w-full lg:w-1/3">

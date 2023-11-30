@@ -36,7 +36,7 @@ export const CartItem = ({ product }) => {
           navigate(`/products/${product.category}/${product._id}`);
         }}
       >
-        <div className="border rounded-sm p-3 pr-7 pb-4 flex w-full gap-4 relative cursor-pointer hover:border-green-600 transition-all">
+        <div className="shadow hover:shadow-lg rounded-sm p-3 pr-7 pb-4 flex w-full gap-4 relative cursor-pointer transition-all">
           <div className="object-cover w-24 h-full mobile:w-32">
             <img
               src={product.url}

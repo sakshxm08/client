@@ -1,29 +1,37 @@
+/* eslint-disable no-octal-escape */
 import React from "react";
-import { logoLightText } from "../assets";
+import { logoLightText, sakshxm08 } from "../assets";
 import { FaInstagram, FaFacebookF } from "react-icons/fa";
 import { Link } from "react-router-dom";
 export const Footer = () => {
   return (
     <div className="w-screen">
-      <Link
+      {/* <Link
         to="/seller"
         className="w-full bg-black flex items-center justify-center pt-10"
       >
         <span className="w-fit text-white text-sm mx-auto px-10 py-2 border border-green-600 hover:bg-green-600 transition-all cursor-pointer">
           Become a seller?
         </span>
-      </Link>
-      <div className="bg-black text-[#949494] flex flex-wrap flex-col sm:flex-row  py-10 font-titleFont px-5 md:px-10  lg:px-20 xl:px-40 gap-8 lg:gap-12  justify-between">
+      </Link> */}
+      <div className="bg-black text-[#949494] flex flex-wrap flex-col sm:flex-row  py-20 font-titleFont px-5 md:px-10  lg:px-20 xl:px-40 gap-8 lg:gap-12  justify-between">
         <div className="flex flex-col gap-4">
           <img src={logoLightText} className="w-48 sm:w-60" alt="" />
-          <input
-            type="text"
-            placeholder="Enter your email"
-            className="bg-transparent border-b-[0.5px] border-b-gray-200 py-2 placeholder:text-gray-300 outline-none text-white text-sm mobile:text-base font-bodyFont font-light"
-          />
-          <button className="w-fit rounded-full text-sm mobile:text-xs font-bold mt-2 hover:bg-gray-300 transition-all duration-200 bg-gray-100 text-gray-700 px-4 py-3">
-            Subscribe
-          </button>
+          <span className="text-lg">by</span>
+
+          <div className="flex items-center gap-4 w-fit">
+            <img src={sakshxm08} alt="sakshxm08" className="w-12" />
+            <Link
+              to="https://sakshxm08.in"
+              target="_blank"
+              className="text-2xl group font-extrabold hover:text-green-600 transition-all font-bodyFont flex flex-col gap- w-fit"
+            >
+              @sakshxm08
+              <span className="whitespace-nowrap text-green-600 text-xs transition-all group-hover:tracking-widest duration-200">
+                Saksham Gambhir
+              </span>
+            </Link>
+          </div>
         </div>
         <div className=" text-right text-white pt-4  gap-2  sm:gap-0 flex flex-col items-start min-[780px]:items-end justify-between ">
           <h2 className="text-base mobile:text-lg font-semibold font-titleFont ">

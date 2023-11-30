@@ -1,8 +1,8 @@
 import React from "react";
-import { cart, logoText, userImg } from "../assets";
-import { Link, NavLink } from "react-router-dom";
+import { logoText, userImg } from "../assets";
+import { Link } from "react-router-dom";
 import { UserMenu } from "./UserMenu";
-
+import { BsBag } from "react-icons/bs";
 import { IoMdArrowDropdown } from "react-icons/io";
 import SearchBar from "./SearchBar";
 import MobileMenu from "./MobileMenu";
@@ -71,62 +71,12 @@ export const Header = () => {
         {/* LAPTOP MENU */}
 
         <div className=" w-fit tablets:w-full h-full items-center justify-between gap-8 flex">
-          <ul className=" h-full items-center justify-between gap-10 font-titleFont hidden tablets:flex">
-            <NavLink
-              to="/men"
-              className={({ isActive, isPending }) =>
-                isPending
-                  ? "text-black"
-                  : isActive
-                  ? "text-green-600 font-medium text-sm"
-                  : "font-medium h-full flex items-center justify-center text-black text-sm hover:text-green-700 cursor-pointer transition-all duration-200 relative after:absolute hover:after:w-full after:w-0 after:transition-all after:duration-300 after:content-[''] after:h-[2px] after:bg-green-700 after:left-0 after:bottom-5"
-              }
-            >
-              <li>MEN</li>
-            </NavLink>
-            <NavLink
-              to="/women"
-              className={({ isActive, isPending }) =>
-                isPending
-                  ? "text-black"
-                  : isActive
-                  ? "text-green-600 font-medium text-sm"
-                  : "font-medium h-full flex items-center justify-center text-black text-sm hover:text-green-700 cursor-pointer transition-all duration-200 relative after:absolute hover:after:w-full after:w-0 after:transition-all after:duration-300 after:content-[''] after:h-[2px] after:bg-green-700 after:left-0 after:bottom-5"
-              }
-            >
-              <li>WOMEN</li>
-            </NavLink>
-            <NavLink
-              to="/kids"
-              className={({ isActive, isPending }) =>
-                isPending
-                  ? "text-black"
-                  : isActive
-                  ? "text-green-600 font-medium text-sm"
-                  : "font-medium h-full flex items-center justify-center text-black text-sm hover:text-green-700 cursor-pointer transition-all duration-200 relative after:absolute hover:after:w-full after:w-0 after:transition-all after:duration-300 after:content-[''] after:h-[2px] after:bg-green-700 after:left-0 after:bottom-5"
-              }
-            >
-              <li>KIDS</li>
-            </NavLink>
-            <NavLink
-              to="/beauty"
-              className={({ isActive, isPending }) =>
-                isPending
-                  ? "text-black"
-                  : isActive
-                  ? "text-green-600 font-medium text-sm"
-                  : "font-medium h-full flex items-center justify-center text-black text-sm hover:text-green-700 cursor-pointer transition-all duration-200 relative after:absolute hover:after:w-full after:w-0 after:transition-all after:duration-300 after:content-[''] after:h-[2px] after:bg-green-700 after:left-0 after:bottom-5"
-              }
-            >
-              <li>BEAUTY</li>
-            </NavLink>
-          </ul>
-          <div className="w-1/2  hidden tablets:flex">
+          <div className="w-full max-w-xl mx-auto  hidden tablets:flex">
             <SearchBar />
           </div>
-          <div className="flex gap-3 tablets:gap-6 h-full items-center justify-center">
-            <div className="group h-full hidden tablets:flex relative justify-center items-center group cursor-pointer  after:content-[''] after:w-full after:duration-200 after:h-0 hover:after:h-1 after:bg-green-600 after:absolute after:bottom-0 ">
-              <div className=" h-full relative flex items-center justify-center text-base gap-0 ">
+          <div className="flex gap-8 justify-between h-full items-center ">
+            <div className="group h-full hidden tablets:flex relative justify-center items-center group cursor-pointer after:content-[''] after:w-full after:duration-200 after:h-0 hover:after:h-1 after:bg-green-600 after:absolute after:bottom-0 ">
+              <div className=" h-full relative flex items-center justify-center text-base gap-0 pl-4 pr-2">
                 <img src={userImg} className={"w-6 "} alt="user" />
 
                 <span className="group-hover:rotate-180 text-2xl duration-300">
@@ -142,8 +92,14 @@ export const Header = () => {
               className="h-full flex justify-center items-center group"
             >
               <div className="relative flex items-center w-8 aspect-square justify-center text-base gap-1 cursor-pointer">
-                <img src={cart} className="w-6" alt="cart" />
-                <span>{qty}</span>
+                {/* <img src={cart} className="w-6" alt="cart" /> */}
+                <div className="w-8 relative">
+                  <BsBag className="text-2xl" />
+
+                  <span className="absolute text-xs -top-2 -right-2 rounded-full aspect-square bg-green-600 text-white w-6 flex items-center justify-center">
+                    {qty}
+                  </span>
+                </div>
                 <div
                   className="before:content-[''] 
                 before:scale-[0.2] before:aspect-square before:bg-gray-800 before:rotate-45 before:-top-[1.2rem] -before:translate-x-1/2 
