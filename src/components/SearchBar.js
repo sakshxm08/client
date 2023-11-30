@@ -120,10 +120,12 @@ const SearchBar = () => {
         className="w-full flex items-center"
         onSubmit={(e) => {
           e.preventDefault();
-          navigate("/searchitems");
-          searchParams.set("q", query);
-          setSearchParams(searchParams);
-          setSearchResults(false);
+          if (query) {
+            navigate("/searchitems");
+            searchParams.set("q", query);
+            setSearchParams(searchParams);
+            setSearchResults(false);
+          }
           document.activeElement.blur();
         }}
       >
