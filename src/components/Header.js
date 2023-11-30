@@ -9,7 +9,6 @@ import MobileMenu from "./MobileMenu";
 import { useSelector } from "react-redux";
 import { BsBox2Heart } from "react-icons/bs";
 import { GoSearch } from "react-icons/go";
-import { useLogout } from "../hooks/useLogout";
 
 export const Header = () => {
   const cart_redux = useSelector((state) => state.cart.cart);
