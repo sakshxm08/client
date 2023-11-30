@@ -12,7 +12,7 @@ import { GoSearch } from "react-icons/go";
 
 export const Header = () => {
   const cart_redux = useSelector((state) => state.cart.cart);
-  const [menu, setMenu] = useState(true);
+  const [menu, setMenu] = useState(false);
   const menuRef = useRef();
 
   const funcProp = () => {
