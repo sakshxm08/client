@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { MdInfoOutline } from "react-icons/md";
 
 export const CartPrice = () => {
   const cart = useSelector((state) => state.cart.cart);
@@ -46,6 +47,10 @@ export const CartPrice = () => {
       <button className="w-full bg-green-600 rounded-sm text-white uppercase tracking-widest text-xs py-3 mt-3 font-medium hover:bg-green-700 active:bg-green-900 duration-200">
         Place Order
       </button>
+      <div className="flex justify-center items-center gap-2 border border-red-200 text-xs text-red-400 py-1 text-center">
+        <MdInfoOutline className="text-base" />
+        Place Order is not working as of now.
+      </div>
     </>
   );
 };

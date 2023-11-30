@@ -1,11 +1,11 @@
 /* eslint-disable no-octal-escape */
 import React from "react";
-import { logoLightText, sakshxm08 } from "../assets";
+import { logoLightText, react, sakshxm08, tailwind } from "../assets";
 import { FaInstagram, FaFacebookF } from "react-icons/fa";
 import { Link } from "react-router-dom";
 export const Footer = () => {
   return (
-    <div className="w-screen">
+    <div className="w-screen bg-black">
       {/* <Link
         to="/seller"
         className="w-full bg-black flex items-center justify-center pt-10"
@@ -14,7 +14,7 @@ export const Footer = () => {
           Become a seller?
         </span>
       </Link> */}
-      <div className="bg-black text-[#949494] flex flex-wrap flex-col sm:flex-row  py-20 font-titleFont px-5 md:px-10  lg:px-20 xl:px-40 gap-8 lg:gap-12  justify-between">
+      <div className=" text-[#949494] flex flex-wrap flex-col sm:flex-row  py-14 font-titleFont px-5 md:px-10  lg:px-20 xl:px-40 gap-8 lg:gap-12  justify-between">
         <div className="flex flex-col gap-4">
           <img src={logoLightText} className="w-48 sm:w-60" alt="" />
           <span className="text-lg">by</span>
@@ -47,16 +47,19 @@ export const Footer = () => {
           </div>
           <div className="flex gap-4 text-base pt-4">
             <span className="cursor-pointer rounded-full border border-gray-100 text-gray-100 p-2 hover:border-gray-400 hover:text-gray-400 transition-all duration-200 ">
-              <Link to="https://www.instagram.com/wear_worx/">
+              {/* <Link to="https://www.instagram.com/wear_worx/">
                 <FaInstagram />
-              </Link>
+              </Link> */}
+              <span>
+                <FaInstagram />
+              </span>
             </span>
             <span className="cursor-pointer rounded-full border border-gray-100 text-gray-100 p-2 hover:border-gray-400 hover:text-gray-400 transition-all duration-200">
               <FaFacebookF />
             </span>
           </div>
         </div>
-        <div className="text-right text-white pt-4  flex flex-col items-start min-[780px]:items-end gap-4">
+        {/* <div className="text-right text-white pt-4  flex flex-col items-start min-[780px]:items-end gap-4">
           <h2 className="text-base mobile:text-lg font-semibold font-titleFont ">
             Recent
           </h2>
@@ -66,12 +69,54 @@ export const Footer = () => {
             <div>Privacy Policy</div>
             <div>Terms and Conditions</div>
           </div>
+        </div> */}
+      </div>
+      <div className="h-fit   w-full relative flex justify-center items-center mb-10">
+        <div className="w-11/12 xl:w-4/5 bg-gradient-to-br from-green-500 to-green-800  text-white px-6 lg:px-10 gap-6 lg:gap-10 text-center h-fit py-6 rounded-xl shadow-lg  flex flex-col md:flex-row justify-center md:justify-around items-center">
+          <span className="font-titleFont text-3xl lg:text-4xl font-bold ">
+            Have feedback about the website?
+          </span>
+          <span className="font-titleFont text-base lg:text-lg font-light">
+            Interested in working together? We should queue up a time to chat.
+          </span>
+          <Link to="https://sakshxm08.in/#contact" target="_blank">
+            <button className="bg-transparent border-4 hover:bg-green-300 duration-200 hover:text-sky-950  border-green-300 rounded-full whitespace-nowrap px-6 py-2 text-lg lg:text-xl font-titleFont ">
+              Let's do this !
+            </button>
+          </Link>
         </div>
       </div>
 
-      <div className="w-full bg-[#21821E] text-white h-10 text-center mobile:text-sm font-bodyFont text-xs py-1 md:text-base flex items-center justify-center">
-        &copy; Copyright 2023 Wearworx - All Rights Reserved
+      <div className="font-titleFont text-xl font-light flex flex-col items-center justify-center gap-8 dark:text-sky-100 pb-10">
+        <div className="flex sm:flex-row flex-col sm:items-start items-center justify-center gap-2 text-white">
+          Handcrafted by{" "}
+          <Link
+            className="after:w-full flex flex-col after:h-[1px] after:bg-green-600  sm:gap-2 after:scale-x-0 hover:after:scale-x-100 after:duration-200 duration-200 text-green-400 hover:text-green-600  "
+            to="https://sakshxm08.in"
+            target="_blank"
+          >
+            @sakshxm08
+          </Link>
+          &copy;twentytwentythree
+        </div>
+        <div className="flex gap-2 flex-col sm:flex-row justify-center items-center">
+          <div className="w-fit flex items-center h-full justify-center gap-2 bg-sky-800 text-white px-4 py-1 rounded text-xs">
+            Made with
+            <Link to="https://react.dev/">
+              <img src={react} className="h-6" alt="" />
+            </Link>
+          </div>
+          <div className="w-fit flex items-center h-full justify-center py-2 gap-2 bg-white text-black px-4 rounded text-xs">
+            Styled with
+            <Link to="https://tailwindcss.com/">
+              <img src={tailwind} className="h-3" alt="" />
+            </Link>
+          </div>
+        </div>
       </div>
+      {/* <div className="w-full bg-green-700 text-white h-10 text-center font-bodyFont text-sm py-1  flex items-center justify-center">
+        &copy; Copyright 2023 Wearworx - All Rights Reserved
+      </div> */}
     </div>
   );
 };

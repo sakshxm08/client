@@ -43,7 +43,7 @@ export const UserMenu = () => {
             </Link>
           </div>
         )}
-        <div>
+        {/* <div>
           <div className="h-[0.5px] w-full bg-gray-400"></div>
           <div className="flex flex-col gap-0 text-sm py-2">
             <span className="py-1 active:text-green-800 hover:font-semibold font-light cursor-pointer">
@@ -59,16 +59,27 @@ export const UserMenu = () => {
               Contact Us
             </span>
           </div>
-        </div>
+        </div> */}
 
         {user && (
           <div>
             <div className="h-[0.5px] w-full bg-gray-400"></div>
 
             <div className="flex flex-col text-sm py-2">
-              <span className="py-1 active:text-green-800 hover:font-semibold font-light cursor-pointer">
-                Edit Profile
-              </span>
+              <Link
+                to="/cart"
+                className="py-1 active:text-green-800 hover:font-semibold font-light cursor-pointer"
+              >
+                Cart
+              </Link>
+              <Link
+                to="/stash"
+                className="py-1 active:text-green-800 hover:font-semibold font-light cursor-pointer"
+              >
+                Stash
+              </Link>
+              <div className="h-[0.5px] w-full bg-gray-400 my-2"></div>
+
               <span
                 className="py-1 text-red-500 active:text-red-800 hover:font-semibold font-light cursor-pointer"
                 onClick={signout}

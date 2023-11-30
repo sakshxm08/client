@@ -32,6 +32,8 @@ import orderConfirmed from "./order_confirmed.svg";
 import cartLogin from "./cart-login.svg";
 import stashImg from "./stash.svg";
 import sakshxm08 from "./sakshxm08.png";
+import tailwind from "./tailwind.png";
+import react from "./react.png";
 export {
   logoText,
   logoLightText,
@@ -67,4 +69,6 @@ export {
   cartLogin,
   stashImg,
   sakshxm08,
+  tailwind,
+  react,
 };
