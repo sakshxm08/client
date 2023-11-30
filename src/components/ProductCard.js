@@ -99,7 +99,7 @@ export const ProductCard = ({ product }) => {
         </div>
         <span
           onClick={addToStash}
-          className="bottom-2 text-xs border z-50 text-gray-500 right-2 hover:bg-gray-200 px-[2px] py-[2px] h-fit   hover:text-gray-900 absolute transform cursor-pointer tablets:translate-x-72 w-[120px] flex gap-1 items-center justify-center transition-transform group-hover:translate-x-0 duration-300"
+          className="bottom-2 text-xs border tablets:z-50 text-gray-500 right-2 hover:bg-gray-200 px-[2px] py-[2px] h-fit   hover:text-gray-900 absolute transform cursor-pointer tablets:translate-x-72 w-[120px] flex gap-1 items-center justify-center transition-transform group-hover:translate-x-0 duration-300"
         >
           add to stash <HiHeart />
         </span>
