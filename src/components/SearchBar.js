@@ -69,23 +69,24 @@ const SearchBar = () => {
   // try {
   //   if (query) {
   const fetchData = async (value) => {
-    setSearchResults(true);
+    if (value) {
+      setSearchResults(true);
+      setLoader(true);
+      const product_res = await fetch(
+        `https://wearworx-server.onrender.com/api/store/search/product/${value}`
+      );
+      const product_json = await product_res.json();
 
-    setLoader(true);
-    const product_res = await fetch(
-      `https://wearworx-server.onrender.com/api/store/search/product/${value}`
-    );
-    const product_json = await product_res.json();
+      const category_res = await fetch(
+        `https://wearworx-server.onrender.com/api/store/search/category/${value}`
+      );
+      const category_json = await category_res.json();
 
-    const category_res = await fetch(
-      `https://wearworx-server.onrender.com/api/store/search/category/${value}`
-    );
-    const category_json = await category_res.json();
+      setProducts(product_json);
+      setCategories(category_json);
 
-    setProducts(product_json);
-    setCategories(category_json);
-
-    setLoader(false);
+      setLoader(false);
+    }
   };
   // fetchData();
 
