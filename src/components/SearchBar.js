@@ -3,11 +3,10 @@ import { IoIosSearch } from "react-icons/io";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import SmallLoader from "./Loaders/SmallLoader";
 
-const SearchBar = () => {
+const SearchBar = ({ query, setQuery }) => {
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
   const [loading, setLoader] = useState(false);
-  const [query, setQuery] = useState("");
 
   const [searchResults, setSearchResults] = useState(false);
 
@@ -85,7 +84,7 @@ const SearchBar = () => {
       {query && searchResults && (
         <div
           ref={searchRef}
-          className="absolute shadow bg-white z-50 left-0 top-full mt-2 py-2 rounded overflow-x-hidden overflow-y-scroll w-full m h-fit"
+          className="absolute shadow bg-white z-50 left-0 top-full mt-2 py-2 rounded overflow-x-hidden overflow-y-scroll w-full h-fit max-h-96"
         >
           {loading && query && <SmallLoader width={30} />}
           {!loading && (

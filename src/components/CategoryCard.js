@@ -20,7 +20,7 @@ export const CategoryCard = ({ category }) => {
           alt=""
         />
       </div>
-      <span className="font-extralight sm:font-normal">{category.name}</span>
+      <span className="font-light sm:font-normal">{category.name}</span>
     </div>
   );
 };

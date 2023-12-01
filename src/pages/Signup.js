@@ -22,11 +22,11 @@ export const Signup = () => {
   return (
     <Transitions>
       {isLoading && <LoaderOverlay />}
-      <div className="relative">
-        <div className="lg:p-0 p-0 md:px-10 w-fit my-20 flex gap-8 mx-auto items-center ">
-          <div className="flex flex-col gap-4 w-fit  md:w-[30rem]">
-            <div className="flex flex-col gap-4 lg:items-start items-center">
-              <h1 className="text-3xl sm:text-2xl tablets:text-3xl font-bold font-bodyFont tracking-wider">
+      <div className="relative max-w-5xl mx-auto">
+        <div className="px-10 w-full mobile:w-3/4 md:w-fit my-20 flex gap-8 mx-auto items-center ">
+          <div className="flex flex-col gap-4 w-full  md:w-1/2">
+            <div className="flex flex-col gap-4 lg:items-start items-center w-full">
+              <h1 className="text-2xl mobile:text-3xl font-bold font-bodyFont tracking-wider">
                 Create Account
               </h1>
               {/* <div className="flex gap-4 items-center">
@@ -61,16 +61,16 @@ export const Signup = () => {
                 </div>
               </div> */}
             </div>
-            <form onSubmit={register} className="flex flex-col gap-8">
-              <div className="flex flex-col gap-6 md:items-start justify-center items-center">
-                <span className=" font-light text-sm text-gray-500">
+            <form onSubmit={register} className="flex flex-col gap-8 w-full">
+              <div className="flex flex-col gap-6 lg:items-start justify-center items-center">
+                <span className=" font-light text-sm text-gray-500 lg:text-start text-center">
                   Register your email address to continue
                 </span>
                 <input
                   type="name"
                   name="name"
                   placeholder="Name"
-                  className="border p-2 sm:py-1  text-sm tablets:py-2 w-full mobile:w-96 sm:w-full focus-visible:border-green-600 outline-none"
+                  className="border p-2 text-sm sm:py-2 w-full focus-visible:border-green-600 outline-none"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                 />
@@ -78,7 +78,7 @@ export const Signup = () => {
                   type="email"
                   name="email"
                   placeholder="Email"
-                  className="border  p-2 sm:py-1  text-sm tablets:py-2 w-full mobile:w-96 sm:w-full focus-visible:border-green-600 outline-none"
+                  className="border  p-2 text-sm sm:py-2 w-full focus-visible:border-green-600 outline-none"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
@@ -86,7 +86,7 @@ export const Signup = () => {
                   name="password"
                   type="password"
                   placeholder="Password"
-                  className="border  p-2 sm:py-1  text-sm tablets:py-2 w-full mobile:w-96 sm:w-full focus-visible:border-green-600 outline-none"
+                  className="border  p-2  text-sm sm:py-2 w-full  focus-visible:border-green-600 outline-none"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
@@ -114,8 +114,8 @@ export const Signup = () => {
               </div>
             </form>
           </div>
-          <div className="md:relative absolute md:opacity-100 opacity-20 left-0 -z-50 md:w-fit w-screen ">
-            <img src={signupImg} alt="" className="w-fit md:w-[30rem]" />
+          <div className="md:relative absolute md:opacity-100 opacity-20 left-0 -z-50 md:w-1/2 w-screen ">
+            <img src={signupImg} alt="" className="w-full" />
           </div>
         </div>
       </div>

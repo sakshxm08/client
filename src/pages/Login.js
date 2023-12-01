@@ -23,12 +23,12 @@ export const Login = () => {
     <Transitions>
       {isLoading && <LoaderOverlay />}
 
-      <div className="relative">
-        <div className="lg:p-0 p-0 sm:px-10 w-fit my-20 flex gap-8 mx-auto items-center">
-          <div className="sm:relative absolute sm:opacity-100 opacity-20 left-0 -z-50 sm:w-fit w-screen ">
-            <img src={loginImg} alt="" className="w-fit sm:w-[30rem]" />
+      <div className="relative max-w-5xl mx-auto">
+        <div className="px-10  my-20 flex gap-8 mx-auto items-center">
+          <div className="sm:relative absolute sm:opacity-100 opacity-20 left-0 -z-50 sm:w-1/2 w-screen ">
+            <img src={loginImg} alt="" className="w-full" />
           </div>
-          <div className="flex flex-col gap-8 w-fit sm:w-[30rem]">
+          <div className="flex flex-col gap-8 w-full sm:w-1/2">
             <div className="flex flex-col gap-1 md:items-start items-center">
               <div className="flex justify-between items-center w-fit lg:w-full">
                 <h1 className="text-3xl sm:text-2xl tablets:text-3xl  font-bold font-bodyFont tracking-wider">
@@ -48,7 +48,7 @@ export const Login = () => {
               </span>
             </div>
             <form
-              className="flex flex-col gap-8 w-fit sm:w-[30rem]"
+              className="flex flex-col gap-8 w-full "
               onSubmit={handleSubmit}
             >
               <div className="flex flex-col gap-6 md:items-start items-center">

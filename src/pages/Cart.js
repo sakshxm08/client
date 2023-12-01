@@ -172,33 +172,33 @@ export const Cart = () => {
             </>
           ) : (
             <>
-              <div className="py-28 flex justify-center gap-28 items-center">
-                <div className="flex flex-col gap-12 items-start justify-center">
-                  <div className="text-5xl flex gap-4 font-titleFont tracking-wider">
+              <div className="py-48 md:py-28 flex justify-between max-w-5xl w-11/12 mx-auto items-center relative">
+                <div className="flex flex-col gap-10 md:gap-6 lg:gap-12 items-center md:items-start justify-center tablets:w-max md:w-1/2 w-full">
+                  <div className="text-4xl mobile:text-5xl md:text-start text-center font-titleFont tracking-wider leading-normal">
                     <span className="font-bold">Hey, it feels so </span>
                     <span className=" font-extrabold text-green-600">
                       Light!
                     </span>
                   </div>
-                  <div className="font-medium flex gap-1 text-gray-700 text-lg">
+                  <div className="font-medium text-gray-700 text-base mobile:text-lg md:text-start text-center">
                     <span>There is nothing in your cart. Let's</span>
-                    <span className="text-green-600">add</span>
+                    <span className="text-green-600"> add </span>
                     <span>some items.</span>
                   </div>
-                  <div className="text-base flex items-center gap-2">
+                  <div className="text-sm mobile:text-base flex items-center gap-2">
                     <Link
                       to="/"
-                      className="uppercase font-titleFont font-bold border py-2 px-8 tracking-wide flex items-center justify-center gap-2 group hover:border-green-600 hover:text-green-600 rounded transition-all"
+                      className=" bg-white uppercase font-titleFont font-bold border py-2 px-8 tracking-wide flex items-center justify-center gap-2 group hover:border-green-600 hover:text-green-600 rounded transition-all"
                     >
                       Add Items to Cart
-                      <FaArrowRight className=" text-base group-hover:translate-x-2 transition-all text-black" />
+                      <FaArrowRight className="text-sm mobile:text-base group-hover:translate-x-2 transition-all text-black" />
                     </Link>
                   </div>
                 </div>
                 <img
                   src={emptyCart}
                   alt="Login required to access cart"
-                  className="w-[400px]"
+                  className="-z-50 md:opacity-100 opacity-20 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:relative md:top-0 md:left-0 md:translate-y-0 md:translate-x-0 w-full md:w-1/2 tablets:w-[400px]"
                 />
               </div>
             </>

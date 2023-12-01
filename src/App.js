@@ -135,7 +135,12 @@ function App() {
         <RouterProvider router={router} />
       </div>
 
-      <ToastContainer style={{ top: "100px" }} />
+      <ToastContainer
+        style={{
+          top: "100px",
+        }}
+        className={"max-w-xs !left-auto !right-4 !w-4/5 min-w-max mobile:w-max"}
+      />
     </>
   );
 }

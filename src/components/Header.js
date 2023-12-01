@@ -13,7 +13,11 @@ import { GoSearch } from "react-icons/go";
 export const Header = () => {
   const cart_redux = useSelector((state) => state.cart.cart);
   const [menu, setMenu] = useState(false);
+  const [search, setSearch] = useState(false);
+  const [query, setQuery] = useState("");
   const menuRef = useRef();
+  const searchRef = useRef();
+  const searchBtn = useRef();
 
   const funcProp = () => {
     setMenu(false);
@@ -32,9 +36,20 @@ export const Header = () => {
     };
     document.addEventListener("mousedown", handleClickOutside);
   }, [menuRef]);
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        !searchRef?.current?.contains(event.target) &&
+        !searchBtn?.current?.contains(event.target)
+      )
+        setSearch(false);
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+  }, [searchRef]);
+
   return (
     <div className="w-full bg-white drop-shadow h-20 sticky top-0 z-10">
-      <div className="w-11/12 h-full mx-auto flex items-center gap-2 tablets:gap-8 justify-between">
+      <div className="w-11/12 h-full mx-auto flex items-center gap-2 tablets:gap-8 justify-between bg-white">
         <div className="flex gap-4 h-full items-center justify-center">
           <div>
             <Link to="/">
@@ -51,9 +66,7 @@ export const Header = () => {
 
             <div
               className="flex tablets:hidden flex-col gap-[4px] z-50"
-              onClick={() => {
-                setMenu(!menu);
-              }}
+              onClick={() => setMenu(!menu)}
               id="menuButton"
             >
               <span className="w-5 h-[1.5px] bg-black duration-200"></span>
@@ -81,9 +94,8 @@ export const Header = () => {
           >
             <div
               className="absolute z-50 flex top-8 right-2"
-              // onClick={toggleMenu}
               onClick={() => {
-                setMenu(!menu);
+                setMenu(false);
               }}
             >
               <span className="w-4 h-[2px] bg-black rotate-45 "></span>
@@ -94,11 +106,12 @@ export const Header = () => {
             </div>
           </div>
         </div>
+
         {/* LAPTOP MENU */}
 
         <div className=" w-fit tablets:w-full h-full items-center justify-between gap-8 flex">
           <div className="w-full max-w-xl mx-auto hidden tablets:flex">
-            <SearchBar />
+            <SearchBar query={query} setQuery={setQuery} />
           </div>
           <div className="flex gap-4 mobile:gap-8 justify-between h-full items-center ">
             <div className="group h-full hidden tablets:flex relative justify-center items-center group cursor-pointer after:content-[''] after:w-full after:duration-200 after:h-0 hover:after:h-1 after:bg-green-600 after:absolute after:bottom-0 ">
@@ -114,7 +127,13 @@ export const Header = () => {
               </div>
             </div>
             <div className="h-full flex tablets:hidden justify-center items-center group">
-              <div className="relative flex items-center w-8 aspect-square justify-center text-base gap-2 cursor-pointer">
+              <div
+                ref={searchBtn}
+                onClick={() => {
+                  setSearch(!search);
+                }}
+                className="relative select-none flex items-center w-8 aspect-square justify-center text-base gap-2 cursor-pointer"
+              >
                 <GoSearch className="text-2xl" />
               </div>
             </div>
@@ -157,6 +176,14 @@ export const Header = () => {
             </Link>
           </div>
         </div>
+      </div>
+      <div
+        className={`absolute w-full px-10 -z-10 bg-white py-4 border-t mx-auto flex transition-all tablets:hidden ${
+          search ? "top-full" : "top-0"
+        }`}
+        ref={searchRef}
+      >
+        <SearchBar query={query} setQuery={setQuery} />
       </div>
     </div>
   );

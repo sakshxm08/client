@@ -88,6 +88,7 @@ const MobileMenu = ({ setMenu }) => {
                   {categories.map((category) => (
                     <Link
                       to={`/products/${category.name.toLowerCase()}`}
+                      key={category._id}
                       onClick={() => {
                         setMenu();
                         setOpenCategory(false);
