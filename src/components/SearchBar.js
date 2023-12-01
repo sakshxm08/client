@@ -3,7 +3,7 @@ import { IoIosSearch } from "react-icons/io";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import SmallLoader from "./Loaders/SmallLoader";
 
-const SearchBar = ({ query, setQuery, setSearchMobile }) => {
+const SearchBar = ({ query, setQuery, setSearchMobile, searchMobile }) => {
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
   const [loading, setLoader] = useState(false);
@@ -55,6 +55,9 @@ const SearchBar = ({ query, setQuery, setSearchMobile }) => {
     };
     document.addEventListener("mousedown", handleClickOutside);
   }, [searchRef]);
+  useEffect(() => {
+    document.activeElement.focus();
+  }, [searchMobile]);
   return (
     <div className="bg-gray-100 h-10 rounded w-full flex items-center relative">
       <span className="tablets:flex text-xl text-gray-700 font-bold hidden items-center justify-center pl-3 pr-4">

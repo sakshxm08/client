@@ -131,6 +131,7 @@ export const Header = () => {
                 ref={searchBtn}
                 onClick={() => {
                   setSearch(!search);
+                  document.activeElement.focus();
                 }}
                 className="relative select-none flex items-center w-8 aspect-square justify-center text-base gap-2 cursor-pointer"
               >
@@ -187,6 +188,7 @@ export const Header = () => {
           query={query}
           setQuery={setQuery}
           setSearchMobile={setSearch}
+          searchMobile={search}
         />
       </div>
     </div>
