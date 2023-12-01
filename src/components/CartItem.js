@@ -54,49 +54,51 @@ export const CartItem = ({ product }) => {
                   </span>
                 </h6>
               </span>
-              <h2 className="text-gray-500 text-sm font-light mt-1 mb-3">
+              <h2 className="text-gray-500 text-xs mobile:text-sm font-light mt-1 mb-3">
                 Category:{" "}
                 {product.category.slice(0, 1).toUpperCase() +
                   product.category.slice(1)}
               </h2>
             </div>
-            <div className="flex gap-2 items-center font-medium text-gray-500 text-[12px] -mt-4">
-              <span className="">
-                &#8377;
-                {product.discountedPrice
-                  ? product.discountedPrice
-                  : product.originalPrice}
-              </span>
-              {product.discountedPrice && (
-                <>
-                  <span className="font-light text-[10px] text-gray-500 line-through">
-                    &#8377;{product.originalPrice}
-                  </span>
-                </>
-              )}
-            </div>
-            <div className="flex flex-wrap gap-2 items-center font-medium mt-2">
-              <span className="text-base mobile:text-lg">
-                &#8377;
-                {(product.discountedPrice
-                  ? product.discountedPrice
-                  : product.originalPrice) * product.qty}
-              </span>
-              {product.discountedPrice && (
-                <>
-                  <span className="font-light text-xs mobile:text-sm text-gray-500 line-through">
-                    &#8377;{product.originalPrice * product.qty}
-                  </span>
-                  <span className="text-green-700 text-xs mobile:text-sm font-medium">
-                    (
-                    {discountCalc(
-                      product.originalPrice,
-                      product.discountedPrice
-                    )}
-                    % OFF)
-                  </span>
-                </>
-              )}
+            <div className="flex flex-col gap-0">
+              <div className="flex gap-2 items-center font-medium text-gray-500 text-[12px] ">
+                <span className="">
+                  &#8377;
+                  {product.discountedPrice
+                    ? product.discountedPrice
+                    : product.originalPrice}
+                </span>
+                {product.discountedPrice && (
+                  <>
+                    <span className="font-light text-[10px] text-gray-500 line-through">
+                      &#8377;{product.originalPrice}
+                    </span>
+                  </>
+                )}
+              </div>
+              <div className="flex flex-wrap gap-2 items-center font-medium ">
+                <span className="text-base mobile:text-lg">
+                  &#8377;
+                  {(product.discountedPrice
+                    ? product.discountedPrice
+                    : product.originalPrice) * product.qty}
+                </span>
+                {product.discountedPrice && (
+                  <>
+                    <span className="font-light text-xs mobile:text-sm text-gray-500 line-through">
+                      &#8377;{product.originalPrice * product.qty}
+                    </span>
+                    <span className="text-green-700 text-xs mobile:text-sm font-medium">
+                      (
+                      {discountCalc(
+                        product.originalPrice,
+                        product.discountedPrice
+                      )}
+                      % OFF)
+                    </span>
+                  </>
+                )}
+              </div>
             </div>
             <div className="flex">
               <span
@@ -104,7 +106,7 @@ export const CartItem = ({ product }) => {
                   e.stopPropagation();
                   setQtyModalOpen(true);
                 }}
-                className="cursor-pointer flex items-center justify-center w-fit gap-1 mt-2 px-2 py-1 bg-gray-100 font-semibold rounded-sm text-xs"
+                className="cursor-pointer flex items-center justify-center w-fit gap-1  px-2 py-1 bg-gray-100 font-semibold rounded-sm text-xs"
               >
                 Qty: {product.qty}{" "}
                 <IoIosArrowDown className="text-xs"></IoIosArrowDown>
@@ -128,7 +130,7 @@ export const CartItem = ({ product }) => {
           isOpen={qtyModalOpen}
           ariaHideApp={false}
           onRequestClose={() => setQtyModalOpen(false)}
-          className="absolute rounded w-1/3 h-fit bg-[#f1f1f1] p-6  left-0 right-0 mx-auto top-1/2 -translate-y-1/2"
+          className="absolute rounded w-4/5 max-w-sm h-fit bg-[#f1f1f1] p-6  left-0 right-0 mx-auto top-1/2 -translate-y-1/2"
           overlayClassName="bg-[#0000007c] fixed inset-0 z-50"
         >
           <div className="flex gap-4 border-b pb-5 border-b-gray-300">
@@ -145,27 +147,29 @@ export const CartItem = ({ product }) => {
                     product.category.slice(1)}
                 </span>
               </div>
-              <div className="flex gap-2 items-center font-medium">
-                <span>
-                  &#8377;
-                  {product.discountedPrice
-                    ? product.discountedPrice
-                    : product.originalPrice}
-                </span>
-                {product.discountedPrice && (
-                  <>
+              <div className="flex mobile:flex-row flex-col gap-1 mobile:gap-2 mobile:items-center font-medium">
+                <div className="flex gap-2 items-center">
+                  <span>
+                    &#8377;
+                    {product.discountedPrice
+                      ? product.discountedPrice
+                      : product.originalPrice}
+                  </span>
+                  {product.discountedPrice && (
                     <span className="font-light text-xs text-gray-500 line-through">
                       &#8377;{product.originalPrice}
                     </span>
-                    <span className="text-green-700 text-xs font-medium">
-                      (
-                      {discountCalc(
-                        product.originalPrice,
-                        product.discountedPrice
-                      )}
-                      % OFF)
-                    </span>
-                  </>
+                  )}
+                </div>
+                {product.discountedPrice && (
+                  <span className="text-green-700 text-xs font-medium">
+                    (
+                    {discountCalc(
+                      product.originalPrice,
+                      product.discountedPrice
+                    )}
+                    % OFF)
+                  </span>
                 )}
               </div>
             </div>
@@ -238,7 +242,7 @@ export const CartItem = ({ product }) => {
                 </span>
               </div>
             </div>
-            <div className="pt-3 mobile:border-t border-t-gray-300 text-[10px] grid grid-cols-1 gap-2 mobile:gap-0 mobile:grid-cols-2 text-center">
+            <div className="pt-3 mobile:border-t border-t-gray-300 text-[10px] grid grid-cols-1 gap-4 mobile:gap-0 mobile:grid-cols-2 text-center">
               <span
                 className="font-medium cursor-pointer border-r border-r-gray-300"
                 onClick={removeItem}

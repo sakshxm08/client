@@ -38,20 +38,26 @@ export const Products = () => {
         <Loader />
       ) : (
         <div>
-          <div className="py-10 px-5 min-w-[400px] ">
-            <div className=" mx-14 mb-12">
+          <div className="py-10 px-5  max-w-screen-xl mx-auto">
+            <div className="  mb-4">
               <Breadcrumb routes={routes} />
             </div>
             <div className="flex flex-col items-center gap-4">
-              <h1 className="text-base lg:text-xl bg-black text-white py-2 w-4/5 sm:w-80 text-center">
+              <h1 className="text-base lg:text-xl bg-black text-white py-2 w-full sm:w-80 text-center">
                 {category.toUpperCase()}
               </h1>
               <span className="w-20 h-[3px] bg-black"></span>
             </div>
             {store && store.length !== 0 ? (
-              <div className="max-w-screen-xl mx-auto grid mobile:grid-cols-2 tablets:grid-cols-3 xl:grid-cols-4 gap-10 py-10 lg:py-20">
-                {store.map((item) => {
-                  return <ProductCard key={item._id} product={item} />;
+              <div className=" mx-auto mobile:grid mobile:grid-cols-2 tablets:grid-cols-3 xl:grid-cols-4 gap-10 py-10 lg:py-20">
+                {store.map((item, index) => {
+                  return (
+                    <ProductCard
+                      key={item._id}
+                      product={item}
+                      first={index === 0}
+                    />
+                  );
                 })}
               </div>
             ) : (

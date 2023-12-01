@@ -183,7 +183,11 @@ export const Header = () => {
         }`}
         ref={searchRef}
       >
-        <SearchBar query={query} setQuery={setQuery} />
+        <SearchBar
+          query={query}
+          setQuery={setQuery}
+          setSearchMobile={setSearch}
+        />
       </div>
     </div>
   );

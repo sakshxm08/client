@@ -48,26 +48,32 @@ export const SearchItems = () => {
   }, [query]);
 
   return (
-    <div className=" max-w-7xl mx-auto py-16 min-h-[600px]">
+    <div className=" max-w-7xl w-11/12 mx-auto py-16 min-h-[600px]">
       {query ? (
         <div className="flex flex-col gap-8">
-          <h1 className="text-4xl font-semibold">
-            <span className="font-extrabold">"{searchParams.get("q")}"</span> -
-            Search Results
+          <h1 className="text-3xl mobile:text-4xl font-medium mobile:font-semibold mobile:text-start text-center hyphens-auto">
+            <span className="font-bold mobile:font-extrabold">
+              "{searchParams.get("q")}"
+            </span>{" "}
+            - Search Results
           </h1>
           <div className="flex flex-col gap-8">
             <div className="flex flex-col gap-4">
-              <h1 className="text-xl font-semibold">Categories</h1>
+              <h1 className="text-xl font-semibold mobile:text-start text-center">
+                Categories
+              </h1>
               {loader ? (
                 <SmallLoader />
               ) : (
                 categories.length === 0 && (
-                  <div className="text-slate-400">No categories found</div>
+                  <div className="text-slate-400 mobile:text-start text-center">
+                    No categories found
+                  </div>
                 )
               )}
             </div>
             {categories.length > 0 && (
-              <div className="grid grid-cols-8 gap-8">
+              <div className="grid grid-cols-2  min-[375px]:grid-cols-3 mobile:grid-cols-4  sm:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8 gap-8">
                 {categories.map((category) => (
                   <CategoryCard category={category} key={category._id} />
                 ))}
@@ -75,21 +81,29 @@ export const SearchItems = () => {
             )}
           </div>
 
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-6 border-t pt-6">
             <div className="flex flex-col gap-4">
-              <h1 className="text-xl font-semibold">Products</h1>
+              <h1 className="text-xl font-semibold mobile:text-start text-center">
+                Products
+              </h1>
               {loader ? (
                 <SmallLoader />
               ) : (
                 products.length === 0 && (
-                  <div className="text-slate-400">No prodcuts found</div>
+                  <div className="text-slate-400 mobile:text-start text-center">
+                    No prodcuts found
+                  </div>
                 )
               )}
             </div>
             {products.length > 0 && (
-              <div className="grid grid-cols-4 gap-8">
-                {products.map((product) => (
-                  <ProductCard product={product} key={product._id} />
+              <div className="mx-auto mobile:grid mobile:grid-cols-2 tablets:grid-cols-3 xl:grid-cols-4 gap-8">
+                {products.map((product, index) => (
+                  <ProductCard
+                    product={product}
+                    key={product._id}
+                    first={index === 0}
+                  />
                 ))}
               </div>
             )}

@@ -1,19 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { MdOutlineStar } from "react-icons/md";
 import { discountCalc } from "../api/List";
-import {
-  HiArrowRight,
-  HiHeart,
-  HiHome,
-  HiOutlineShoppingBag,
-} from "react-icons/hi";
+import { HiHeart, HiHome, HiOutlineShoppingBag } from "react-icons/hi";
 import { FaUserLock } from "react-icons/fa";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useAuthContext } from "../hooks/useAuthContext";
-
 import { addToCartRedux, incQtyRedux } from "../features/cart/cartSlice";
 import { addToStashRedux } from "../features/stash/stashSlice";
 import Loader from "../components/Loaders/Loader";
@@ -148,15 +142,15 @@ const Product = () => {
             <div className="mb-12">
               <Breadcrumb routes={routes} />
             </div>
-            <div className="flex flex-col md:flex-row gap-10">
-              <div className="w-3/4 mx-auto md:mx-0 mobile:w-1/2 tablets:w-2/5 relative">
+            <div className="flex flex-col md:flex-row gap-6 mobile:gap-10">
+              <div className="w-full h-auto lg:h-[500px]  mobile:border-0  mobile:w-1/2 tablets:w-2/5 relative">
                 <img
                   src={product.url}
-                  className="w-auto h-full tablets:h-[450px] lg:h-[550px]s object-cover tablets:object-contain mx-auto"
+                  className="w-auto h-full object-cover  mx-auto"
                   alt=""
                 />
                 {product.discountedPrice && (
-                  <span className="absolute top-4 py-2 pr-4 text-xl drop-shadow pl-6 bg-green-700 text-white right-0">
+                  <span className="absolute top-4 py-2 pr-4 text-base md:text-xl drop-shadow pl-6 bg-green-700 text-white right-0">
                     {discountCalc(
                       product.originalPrice,
                       product.discountedPrice
@@ -187,7 +181,7 @@ const Product = () => {
                     </span>
                   </div>
                 </div>
-                <div className="flex flex-col items-start justify-start gap-4 pt-4">
+                <div className="flex flex-col items-start justify-start gap-4 pt-4 w-full">
                   <div className="flex flex-col items-start justify-start gap-2">
                     <div className="flex flex-wrap gap-4 items-center">
                       <span className="font-medium text-xl ">
@@ -243,36 +237,21 @@ const Product = () => {
                       ))}
                     </div>
                   </div>
-                  <div className="w-full flex flex-row md:flex-col lg:flex-row gap-2 mobile:gap-4">
-                    <div className="w-1/2 md:w-fit flex flex-col">
-                      <button
-                        onClick={addToCart}
-                        id={`add-to-cart-${product.name}`}
-                        className="w-full mobile:w-80 font-titleFont flex items-center justify-center gap-2 font-medium hover:bg-green-700 duration-200 cursor-pointer tracking-wider text-sm md:text-base bg-green-600 text-white py-3 rounded border border-green-600"
-                      >
-                        <HiOutlineShoppingBag className="text-lg md:text-xl"></HiOutlineShoppingBag>{" "}
-                        Add to Cart
-                      </button>
-                      <Link to="/cart" className="w-full">
-                        <button
-                          id={`go-to-cart-${product.name}`}
-                          className=" w-full mobile:w-80 hidden font-titleFont  items-center justify-center gap-2 font-medium hover:bg-green-700 duration-200 cursor-pointer tracking-wider text-sm md:text-base bg-green-600 text-white py-3 rounded border border-green-600"
-                        >
-                          Go to Cart
-                          <HiArrowRight className="text-lg md:text-xl" />
-                        </button>
-                      </Link>
-                    </div>
-
-                    <div className="w-1/2 md:w-fit">
-                      <button
-                        onClick={addToStash}
-                        className="w-full mobile:w-80 tablets:w-56 font-titleFont flex items-center justify-center gap-2 font-medium hover:bg-green-100 duration-200 cursor-pointer tracking-wider text-xs md:text-base bg-white text-green-600 border border-green-600 py-3 rounded"
-                      >
-                        <HiHeart className=" md:text-xl text-lg"></HiHeart>
-                        Move to Stash
-                      </button>
-                    </div>
+                  <div className="w-full flex flex-col mobile:flex-row md:flex-col lg:flex-row gap-2 mobile:gap-4">
+                    <button
+                      onClick={addToCart}
+                      className="w-full font-titleFont flex items-center justify-center gap-2 font-medium hover:bg-green-700 duration-200 cursor-pointer tracking-wider text-sm md:text-base bg-green-600 text-white py-3 rounded border border-green-600"
+                    >
+                      <HiOutlineShoppingBag className="text-lg md:text-xl"></HiOutlineShoppingBag>{" "}
+                      Add to Cart
+                    </button>
+                    <button
+                      onClick={addToStash}
+                      className="w-full font-titleFont flex items-center justify-center gap-2 font-medium hover:bg-green-100 duration-200 cursor-pointer tracking-wider text-xs md:text-base bg-white text-green-600 border border-green-600 py-3 rounded"
+                    >
+                      <HiHeart className=" md:text-xl text-lg"></HiHeart>
+                      Move to Stash
+                    </button>
                   </div>
                 </div>
               </div>

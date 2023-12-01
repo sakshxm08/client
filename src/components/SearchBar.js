@@ -3,7 +3,7 @@ import { IoIosSearch } from "react-icons/io";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import SmallLoader from "./Loaders/SmallLoader";
 
-const SearchBar = ({ query, setQuery }) => {
+const SearchBar = ({ query, setQuery, setSearchMobile }) => {
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
   const [loading, setLoader] = useState(false);
@@ -57,7 +57,7 @@ const SearchBar = ({ query, setQuery }) => {
   }, [searchRef]);
   return (
     <div className="bg-gray-100 h-10 rounded w-full flex items-center relative">
-      <span className="text-xl text-gray-700 font-bold flex items-center justify-center pl-3 pr-4">
+      <span className="tablets:flex text-xl text-gray-700 font-bold hidden items-center justify-center pl-3 pr-4">
         <IoIosSearch />
       </span>
       <form
@@ -69,6 +69,8 @@ const SearchBar = ({ query, setQuery }) => {
             searchParams.set("q", query);
             setSearchParams(searchParams);
             setSearchResults(false);
+
+            setSearchMobile(false);
           }
           document.activeElement.blur();
         }}
@@ -78,9 +80,25 @@ const SearchBar = ({ query, setQuery }) => {
           value={searchParams.get("q") ? searchParams.get("q") : query}
           onChange={(e) => handleSearch(e.target.value)}
           placeholder="Search for products, brands and more"
-          className="bg-transparent w-full h-full outline-none text-sm font-light pr-4"
+          className="bg-transparent w-full h-full outline-none text-sm font-light px-4 tablets:pl-0"
         />
       </form>
+      <span
+        onClick={() => {
+          if (query) {
+            navigate("/searchitems");
+            searchParams.set("q", query);
+            setSearchParams(searchParams);
+            setSearchResults(false);
+
+            setSearchMobile(false);
+          }
+          document.activeElement.blur();
+        }}
+        className="flex text-xl text-gray-700 font-bold tablets:hidden items-center justify-center pl-1 pr-4"
+      >
+        <IoIosSearch />
+      </span>
       {query && searchResults && (
         <div
           ref={searchRef}
@@ -98,6 +116,10 @@ const SearchBar = ({ query, setQuery }) => {
               {products.slice(0, 3).map((product) => (
                 <Link
                   key={product._id}
+                  onClick={() => {
+                    setSearchResults(false);
+                    setSearchMobile(false);
+                  }}
                   to={`/products/${product.category}/${product._id}`}
                   className="w-full px-4 py-2 hover:bg-slate-100 transition-all cursor-pointer flex gap-4 items-center"
                 >
@@ -118,10 +140,11 @@ const SearchBar = ({ query, setQuery }) => {
               {products.length > 3 && (
                 <div
                   onClick={() => {
+                    setSearchResults(false);
+                    setSearchMobile(false);
                     navigate("/searchitems");
                     searchParams.set("q", query);
                     setSearchParams(searchParams);
-                    setSearchResults(false);
                   }}
                   className="text-xs text-green-600 border py-2 px-4 w-fit mx-auto my-4 hover:border-green-600 transition-all cursor-pointer"
                 >
@@ -146,6 +169,10 @@ const SearchBar = ({ query, setQuery }) => {
               {categories.slice(0, 3).map((category) => (
                 <Link
                   key={category._id}
+                  onClick={() => {
+                    setSearchResults(false);
+                    setSearchMobile(false);
+                  }}
                   to={`/products/${category.name.toLowerCase()}`}
                   className="w-full px-4 py-2 hover:bg-slate-100 transition-all cursor-pointer flex gap-4 items-center"
                 >
@@ -163,6 +190,7 @@ const SearchBar = ({ query, setQuery }) => {
                 <div
                   onClick={() => {
                     navigate("/searchitems");
+                    setSearchMobile(false);
                     searchParams.set("q", query);
                     setSearchParams(searchParams);
                     setSearchResults(false);

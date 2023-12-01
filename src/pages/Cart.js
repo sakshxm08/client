@@ -103,20 +103,16 @@ export const Cart = () => {
                       </Link>
                     </>
                   )}
-                  <div className="shadow py-4 px-3 flex bg-gradient-to-br from-green-500 to-green-800 rounded mobile:flex-row flex-col mobile:gap-0 gap-4 justify-between items-center w-full text-[10px] tablets:text-xs font-medium">
-                    <span className="flex gap-4 items-center">
-                      <img
-                        src={stashImg}
-                        className="w-16 tablets:w-28"
-                        alt=""
-                      />
+                  <div className="shadow py-4 px-3 flex sm:flex-row flex-col bg-gradient-to-br from-green-500 to-green-800 rounded sm:gap-0 gap-4 justify-between  sm:items-center w-full text-[10px] mobile:text-xs font-medium">
+                    <span className="flex gap-4 justify-start items-center">
+                      <img src={stashImg} className="w-28" alt="" />
                       <span className="flex flex-col text-base text-white ">
                         Your style awaits, uncover it.
                       </span>
                     </span>
                     <Link
                       to="/stash"
-                      className="flex flex-nowrap mr-2 items-center justify-center gap-2 active:scale-95 mobile:w-fit w-2/3 text-center border border-white text-white px-1 tablets:px-3 py-1 tablets:py-2 uppercase text-[10px] tablets:text-sm hover:bg-white hover:text-green-600 duration-200 cursor-pointer rounded"
+                      className="flex flex-nowrap sm:mr-2 items-center justify-center gap-2 active:scale-95 sm:w-fit w-full text-center border border-white text-white px-1 mobile:px-3 py-2 uppercase text-[10px] mobile:text-sm hover:bg-white hover:text-green-600 duration-200 cursor-pointer rounded"
                     >
                       <BsBox2Heart size={16} />
                       Stash
@@ -132,7 +128,7 @@ export const Cart = () => {
                   isOpen={clearCartModal}
                   ariaHideApp={false}
                   onRequestClose={() => setClearCartModal(false)}
-                  className="absolute rounded w-1/3 h-fit bg-[#f1f1f1] px-4 py-8 left-0 right-0 mx-auto top-1/2 -translate-y-1/2"
+                  className="absolute rounded w-4/5 max-w-sm h-fit bg-[#f1f1f1] px-4 py-4 mobile:py-8 left-0 right-0 mx-auto top-1/2 -translate-y-1/2"
                   overlayClassName="bg-[#0000007c] fixed inset-0 z-50"
                 >
                   <div className="flex flex-col gap-6 ">

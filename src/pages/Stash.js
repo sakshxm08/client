@@ -55,9 +55,9 @@ export const Stash = () => {
               <>
                 <div className="mx-auto w-11/12 flex flex-col gap-3 py-8">
                   <div className="flex justify-between">
-                    <h1 className="text-xl font-semibold font-titleFont">
+                    <h1 className="text-lg mobile:text-xl font-semibold font-titleFont">
                       My Stash{" "}
-                      <span className="font-normal text-gray-700 text-base font-bodyFont">
+                      <span className="font-normal text-gray-700 text-sm mobile:text-base font-bodyFont">
                         ({stash.length}{" "}
                         {stash.length === 1 ? (
                           <span>item</span>
@@ -71,14 +71,18 @@ export const Stash = () => {
                       onClick={() => {
                         setClearStashModal(true);
                       }}
-                      className="border transition-all hover:border-red-600 rounded-sm hover:text-red-600 text-xs py-2 px-4 flex items-center justify-center gap-2"
+                      className="border transition-all hover:border-red-600 rounded-sm hover:text-red-600 text-xs py-2 px-2 mobile:px-4 flex items-center justify-center gap-1 mobile:gap-2"
                     >
                       <TfiDropbox size={16} /> Clear Stash
                     </button>
                   </div>
-                  <div className="w-full  mx-auto grid mobile:grid-cols-2 tablets:grid-cols-3 xl:grid-cols-5 gap-4 py-4">
-                    {stash.map((item) => (
-                      <StashItem key={item._id} product={item} />
+                  <div className="w-full  mx-auto mobile:grid mobile:grid-cols-2 tablets:grid-cols-3 xl:grid-cols-5 gap-4 py-4">
+                    {stash.map((item, index) => (
+                      <StashItem
+                        key={item._id}
+                        product={item}
+                        first={index === 0}
+                      />
                     ))}
                   </div>
                 </div>
@@ -87,7 +91,7 @@ export const Stash = () => {
                     isOpen={clearStashModal}
                     ariaHideApp={false}
                     onRequestClose={() => setClearStashModal(false)}
-                    className="absolute rounded w-1/3 h-fit bg-[#f1f1f1] px-4 py-8 left-0 right-0 mx-auto top-1/2 -translate-y-1/2"
+                    className="absolute rounded w-4/5 max-w-sm h-fit bg-[#f1f1f1] px-4 py-4 mobile:py-8 left-0 right-0 mx-auto top-1/2 -translate-y-1/2"
                     overlayClassName="bg-[#0000007c] fixed inset-0 z-50"
                   >
                     <div className="flex flex-col gap-6 ">
@@ -119,39 +123,34 @@ export const Stash = () => {
               </>
             ) : (
               <>
-                <div className="py-20 flex justify-center gap-20 items-center">
-                  <div className="flex flex-col gap-12 items-start justify-center">
-                    <div className="text-4xl font-bold flex flex-col gap-4 font-titleFont tracking-wider">
-                      <div className="flex gap-2 items-end">
-                        Build your dream
-                        <span className="text-green-600 font-extrabold">
-                          wardrobe
-                        </span>
-                        with
-                      </div>
-                      <div className="flex gap-2 items-end">
-                        your own
-                        <span className="text-5xl font-extrabold text-green-600 uppercase">
-                          Stash
-                        </span>
-                        collection
-                      </div>
+                <div className="py-48 md:py-20 flex justify-between max-w-5xl w-11/12 mx-auto items-center relative">
+                  <div className="flex flex-col gap-10 md:gap-6 lg:gap-12 items-center md:items-start justify-center tablets:w-max md:w-1/2 w-full">
+                    <div className="text-3xl mobile:text-4xl font-bold md:text-start text-center font-titleFont tracking-wider leading-normal">
+                      Build your dream{" "}
+                      <span className="text-green-600 font-extrabold">
+                        wardrobe{" "}
+                      </span>
+                      with your own{" "}
+                      <span className="text-4xl mobile:text-5xl font-extrabold text-green-600 uppercase">
+                        Stash{" "}
+                      </span>
+                      collection
                     </div>
 
-                    <div className="text-base flex items-center gap-2">
+                    <div className="text-sm mobile:text-base flex items-center gap-2">
                       <Link
                         to="/"
-                        className="uppercase font-titleFont font-bold border py-2 px-8 tracking-wide flex items-center justify-center gap-2 group hover:border-green-600 hover:text-green-600 rounded transition-all"
+                        className=" bg-white uppercase font-titleFont font-bold border py-2 px-8 tracking-wide flex items-center justify-center gap-2 group hover:border-green-600 hover:text-green-600 rounded transition-all"
                       >
                         Add Items to Stash
-                        <FaArrowRight className=" text-base group-hover:translate-x-2 transition-all text-black" />
+                        <FaArrowRight className="text-sm mobile:text-base group-hover:translate-x-2 transition-all text-black" />
                       </Link>
                     </div>
                   </div>
                   <img
                     src={emptyStash}
                     alt="Login required to access cart"
-                    className="w-[480px]"
+                    className="-z-50 md:opacity-100 opacity-20 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:relative md:top-0 md:left-0 md:translate-y-0 md:translate-x-0 w-full md:w-1/2 tablets:w-[480px]"
                   />
                 </div>
               </>
