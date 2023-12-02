@@ -82,14 +82,27 @@ export const Signup = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
-                <input
-                  name="password"
-                  type="password"
-                  placeholder="Password"
-                  className="border  p-2  text-sm sm:py-2 w-full  focus-visible:border-green-600 outline-none"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
+                <div className="w-full relative">
+                  <input
+                    name="password"
+                    type="password"
+                    placeholder="Password"
+                    className="border  p-2  text-sm sm:py-2 w-full  focus-visible:border-green-600 outline-none [&:focus+div]:scale-x-100"
+                    value={password}
+                    autoComplete="false"
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                  <div className="text-xs text-gray-500 shadow p-2 rounded bg-gray-200 w-max absolute scale-x-0 left-full top-1/2 -translate-y-1/2 ml-2">
+                    <span className="w-0 h-0 border-y-8 border-y-transparent border-r-8 border-r-gray-200 absolute right-full top-1/2 -translate-y-1/2"></span>
+                    <span>Password must use a combination of these:</span>
+                    <ol className="list-[lower-roman] list-outside ml-5">
+                      <li>Atleast 1 uppercase letter (A-Z)</li>
+                      <li>Lowercase letters (a-z)</li>
+                      <li>Atleast 1 number (0-9)</li>
+                      <li>Atleast 1 non-alphanumeric symbol (e.g. @`&%!)</li>
+                    </ol>
+                  </div>
+                </div>
               </div>
               <div className="flex flex-col lg:flex-row items-center lg:gap-0 gap-4  justify-center lg:justify-between">
                 <button
