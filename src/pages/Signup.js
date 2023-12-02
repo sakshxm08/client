@@ -92,8 +92,8 @@ export const Signup = () => {
                     autoComplete="false"
                     onChange={(e) => setPassword(e.target.value)}
                   />
-                  <div className="text-xs text-gray-500 shadow p-2 rounded bg-gray-200 w-max absolute scale-x-0 left-full top-1/2 -translate-y-1/2 ml-2">
-                    <span className="w-0 h-0 border-y-8 border-y-transparent border-r-8 border-r-gray-200 absolute right-full top-1/2 -translate-y-1/2"></span>
+                  <div className="text-xs text-gray-700 md:text-gray-500 shadow p-2 rounded bg-gray-200 w-full mobile:w-max absolute scale-x-0 top-full left-1/2 -translate-x-1/2 md:translate-x-0 md:left-full  md:top-1/2 mt-2 z-50 md:mt-0 md:-translate-y-1/2 md:ml-2">
+                    <span className="w-0 h-0 border-y-8 border-y-transparent border-r-8 border-r-gray-200 absolute bottom-full md:rotate-0 rotate-90 left-1/2 translate-y-1 -translate-x-1/2 md:left-auto md:translate-x-0 md:bottom-auto md:right-full md:top-1/2 md:-translate-y-1/2"></span>
                     <span>Password must use a combination of these:</span>
                     <ol className="list-[lower-roman] list-outside ml-5">
                       <li>Atleast 1 uppercase letter (A-Z)</li>
