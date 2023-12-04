@@ -2,11 +2,14 @@ import React, { useEffect, useRef, useState } from "react";
 import { IoIosSearch } from "react-icons/io";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import SmallLoader from "./Loaders/SmallLoader";
+import { current } from "@reduxjs/toolkit";
 
 const SearchBar = ({ query, setQuery, setSearchMobile, searchMobile }) => {
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
   const [loading, setLoader] = useState(false);
+
+  const searchBar = useRef();
 
   const [searchResults, setSearchResults] = useState(false);
 
@@ -55,9 +58,11 @@ const SearchBar = ({ query, setQuery, setSearchMobile, searchMobile }) => {
     };
     document.addEventListener("mousedown", handleClickOutside);
   }, [searchRef]);
+
   useEffect(() => {
-    document.activeElement.focus();
+    searchBar.current.focus();
   }, [searchMobile]);
+
   return (
     <div className="bg-gray-100 h-10 rounded w-full flex items-center relative">
       <span className="tablets:flex text-xl text-gray-700 font-bold hidden items-center justify-center pl-3 pr-4">
@@ -72,8 +77,7 @@ const SearchBar = ({ query, setQuery, setSearchMobile, searchMobile }) => {
             searchParams.set("q", query);
             setSearchParams(searchParams);
             setSearchResults(false);
-
-            setSearchMobile(false);
+            setSearchMobile();
           }
           document.activeElement.blur();
         }}
@@ -83,6 +87,7 @@ const SearchBar = ({ query, setQuery, setSearchMobile, searchMobile }) => {
           value={searchParams.get("q") ? searchParams.get("q") : query}
           onChange={(e) => handleSearch(e.target.value)}
           placeholder="Search for products, brands and more"
+          ref={searchBar}
           className="bg-transparent w-full h-full outline-none text-sm font-light px-4 tablets:pl-0"
         />
       </form>
@@ -93,8 +98,7 @@ const SearchBar = ({ query, setQuery, setSearchMobile, searchMobile }) => {
             searchParams.set("q", query);
             setSearchParams(searchParams);
             setSearchResults(false);
-
-            setSearchMobile(false);
+            setSearchMobile();
           }
           document.activeElement.blur();
         }}
@@ -121,7 +125,7 @@ const SearchBar = ({ query, setQuery, setSearchMobile, searchMobile }) => {
                   key={product._id}
                   onClick={() => {
                     setSearchResults(false);
-                    setSearchMobile(false);
+                    setSearchMobile();
                   }}
                   to={`/products/${product.category}/${product._id}`}
                   className="w-full px-4 py-2 hover:bg-slate-100 transition-all cursor-pointer flex gap-4 items-center"
@@ -144,7 +148,7 @@ const SearchBar = ({ query, setQuery, setSearchMobile, searchMobile }) => {
                 <div
                   onClick={() => {
                     setSearchResults(false);
-                    setSearchMobile(false);
+                    setSearchMobile();
                     navigate("/searchitems");
                     searchParams.set("q", query);
                     setSearchParams(searchParams);
@@ -174,7 +178,7 @@ const SearchBar = ({ query, setQuery, setSearchMobile, searchMobile }) => {
                   key={category._id}
                   onClick={() => {
                     setSearchResults(false);
-                    setSearchMobile(false);
+                    setSearchMobile();
                   }}
                   to={`/products/${category.name.toLowerCase()}`}
                   className="w-full px-4 py-2 hover:bg-slate-100 transition-all cursor-pointer flex gap-4 items-center"
@@ -193,7 +197,7 @@ const SearchBar = ({ query, setQuery, setSearchMobile, searchMobile }) => {
                 <div
                   onClick={() => {
                     navigate("/searchitems");
-                    setSearchMobile(false);
+                    setSearchMobile();
                     searchParams.set("q", query);
                     setSearchParams(searchParams);
                     setSearchResults(false);

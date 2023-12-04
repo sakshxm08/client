@@ -97,7 +97,7 @@ export const SearchItems = () => {
               )}
             </div>
             {products.length > 0 && (
-              <div className="mx-auto mobile:grid mobile:grid-cols-2 tablets:grid-cols-3 xl:grid-cols-4 gap-8">
+              <div className=" mobile:grid mobile:grid-cols-2 tablets:grid-cols-3 xl:grid-cols-4 justify-between gap-8">
                 {products.map((product, index) => (
                   <ProductCard
                     product={product}

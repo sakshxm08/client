@@ -19,6 +19,8 @@ export const Header = () => {
   const searchRef = useRef();
   const searchBtn = useRef();
 
+  const setSearchMobile = () => setSearch(false);
+
   const funcProp = () => {
     setMenu(false);
   };
@@ -111,7 +113,12 @@ export const Header = () => {
 
         <div className=" w-fit tablets:w-full h-full items-center justify-between gap-8 flex">
           <div className="w-full max-w-xl mx-auto hidden tablets:flex">
-            <SearchBar query={query} setQuery={setQuery} />
+            <SearchBar
+              query={query}
+              setQuery={setQuery}
+              setSearchMobile={setSearchMobile}
+              searchMobile={search}
+            />
           </div>
           <div className="flex gap-4 mobile:gap-8 justify-between h-full items-center ">
             <div className="group h-full hidden tablets:flex relative justify-center items-center group cursor-pointer after:content-[''] after:w-full after:duration-200 after:h-0 hover:after:h-1 after:bg-green-600 after:absolute after:bottom-0 ">
@@ -187,7 +194,7 @@ export const Header = () => {
         <SearchBar
           query={query}
           setQuery={setQuery}
-          setSearchMobile={setSearch}
+          setSearchMobile={setSearchMobile}
           searchMobile={search}
         />
       </div>
