@@ -59,7 +59,8 @@ const SearchBar = ({ query, setQuery, setSearchMobile, searchMobile }) => {
   }, [searchRef]);
 
   useEffect(() => {
-    searchBar.current.focus();
+    if (searchBar.current.focus()) searchBar.current.blur();
+    else searchBar.current.focus();
   }, [searchMobile]);
 
   return (
