@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { IoIosSearch } from "react-icons/io";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import SmallLoader from "./Loaders/SmallLoader";
-import { current } from "@reduxjs/toolkit";
 
 const SearchBar = ({ query, setQuery, setSearchMobile, searchMobile }) => {
   const [categories, setCategories] = useState([]);
