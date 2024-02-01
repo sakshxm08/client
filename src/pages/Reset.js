@@ -1,28 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { reset } from "../assets";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth, resetPassword } from "../firebase/Firebase";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Transitions from "../components/Transition";
 
 export const Reset = () => {
   const [email, setEmail] = useState("");
   // const [user, loading, error] = useAuthState(auth);
-  const [user, loading] = useAuthState(auth);
+  // const [user, loading] = useAuthState(auth);
   // const [loader, setLoader] = useState(false);
-  const navigate = useNavigate();
-  useEffect(() => {
-    if (loading) {
-      // setLoader(true);
-      return;
-    }
-    if (user) {
-      // setLoader(false);
-      navigate("/");
-      // console.log(user);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user, loading]);
+  // const navigate = useNavigate();
+  // useEffect(() => {
+  //   if (loading) {
+  //     // setLoader(true);
+  //     return;
+  //   }
+  //   if (user) {
+  //     // setLoader(false);
+  //     navigate("/");
+  //     // console.log(user);
+  //   }
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [user, loading]);
 
   return (
     <Transitions>
@@ -51,7 +49,7 @@ export const Reset = () => {
             </div>
             <div className="flex flex-col md:flex-row  items-center md:gap-0 gap-4 justify-center md:justify-between">
               <button
-                onClick={() => resetPassword(email)}
+                // onClick={() => resetPassword(email)}
                 className="tablets:w-64 w-52 text-sm tablets:text-base uppercase text-white tracking-wider font-titleFont font-medium py-3 bg-green-500 hover:bg-green-600 duration-200 rounded-full"
               >
                 Reset password

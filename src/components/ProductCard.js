@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import { useNavigate } from "react-router-dom";
-import { discountCalc } from "../api/List";
+import { discountCalc } from "../services/functions";
 import { HiHeart } from "react-icons/hi";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch, useSelector } from "react-redux";

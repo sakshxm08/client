@@ -1,5 +1,5 @@
 import React from "react";
-import { discountCalc } from "../../api/List";
+import { discountCalc } from "../../services/functions";
 
 const StoreItem = ({ item }) => {
   return (

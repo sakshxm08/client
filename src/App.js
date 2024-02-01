@@ -16,7 +16,7 @@ import { ToastContainer } from "react-toastify";
 import { Stash } from "./pages/Stash";
 import { Login } from "./pages/Login";
 import { Signup } from "./pages/Signup";
-import { Reset } from "./pages/Reset";
+// import { Reset } from "./pages/Reset";
 import Product from "./pages/Product";
 import Seller from "./pages/seller/Seller";
 import AddItem from "./pages/seller/AddItem";
@@ -118,11 +118,7 @@ function App() {
         { path: "/seller/additem", element: <AddItem /> },
         { path: "/login", element: user ? <Navigate to="/" /> : <Login /> },
         { path: "/signup", element: user ? <Navigate to="/" /> : <Signup /> },
-        { path: "/reset", element: user ? <Navigate to="/" /> : <Reset /> },
-        { path: "/men", element: <Home /> },
-        { path: "/women", element: <Home /> },
-        { path: "/kids", element: <Home /> },
-        { path: "/beauty", element: <Home /> },
+        // { path: "/reset", element: user ? <Navigate to="/" /> : <Reset /> },
         { path: "/searchitems", element: <SearchItems /> },
 
         { path: "*", element: <NotFound /> },

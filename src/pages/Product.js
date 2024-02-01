@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { MdOutlineStar } from "react-icons/md";
-import { discountCalc } from "../api/List";
+import { discountCalc } from "../services/functions";
 import { HiHeart, HiHome, HiOutlineShoppingBag } from "react-icons/hi";
 import { FaUserLock } from "react-icons/fa";
 import { toast } from "react-toastify";

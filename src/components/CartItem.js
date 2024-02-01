@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
-import { discountCalc } from "../api/List";
+import { discountCalc } from "../services/functions";
 import { RxCross1 } from "react-icons/rx";
 import Modal from "react-modal";
 import { useDispatch } from "react-redux";

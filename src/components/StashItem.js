@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { discountCalc } from "../api/List";
+import { discountCalc } from "../services/functions";
 import { RxCross1 } from "react-icons/rx";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
